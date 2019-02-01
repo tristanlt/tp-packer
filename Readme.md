@@ -3,10 +3,10 @@ Développement d'image de machine virtuelle.
 
 ## Installation de Packer
 
-wget https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip
-unzip packer_1.3.4_linux_amd64.zip
-rm -f packer_1.3.4_linux_amd64.zip
-export PATH=$PATH:.
+	wget https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip
+	unzip packer_1.3.4_linux_amd64.zip
+	rm -f packer_1.3.4_linux_amd64.zip
+	export PATH=$PATH:.
 
 ## Structure d'un fichier source Packer
 
@@ -18,28 +18,25 @@ Un fichier Packer se découpe en plusieurs zones:
 ## Variables utilisateur
 
 Exemple de récupération d'une variable d'environnement:
-
-```
-{
-	"variables":{
-	"testvar": "{{env `PRODUCTION_STATE`}}"
+	{
+		"variables":{
+		"testvar": "{{env `PRODUCTION_STATE`}}"
 	}
-...
+
 
 Utilisation dans le fichier de définition: 
-```
-parameter: {{ user `testvar` }}
-```
+
+	parameter: {{ user `testvar` }}
+
 
 Les variables utilisateur peuvent également être fournit dans un fichier json lors du lancement de la commande packer. 
 
-```
-packer build -var-file prodution.json def_image.json
-```
+
+	packer build -var-file prodution.json def_image.json
+
 
 ## Build d'une image 
+	
+	packer build u16custom.json
 
-```
-packer build u16custom.json
-```
 
