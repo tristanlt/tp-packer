@@ -1,0 +1,25 @@
+{
+  "builders": [
+    {
+      "type": "openstack",
+      "identity_endpoint": "https://openstack.imt-atlantique.fr:5000/v3",
+      "username": "###########",
+      "password": "###########",
+      "tenant_name": "int272-intro_06",
+      "domain_name": "Default",
+      "region": "RegionOne",
+      "flavor": "m1.small",
+      "ssh_username": "ubuntu",
+      "image_name": "u16custom",
+      "source_image": "e800161d-9203-4ad8-a09e-fba761f8dc89",
+      "networks": "dac52c5f-0d1c-4a38-bb08-b46df17c8289",
+      "floating_ip_pool": "external",
+      "use_floating_ip": true,
+      "security_groups": ["default", "os-cli-secgroup"]
+    }
+  ],
+   "provisioners": [{
+    "type": "shell",
+    "script": "helloworld.sh"
+  }]
+}
